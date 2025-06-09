@@ -1,0 +1,44 @@
+1. Desenho do Experimento
+A. Hipóteses Nula e Alternativa
+Hipótese Nula (H0): Não há diferença significativa entre GraphQL e REST em relação ao tempo de resposta e ao tamanho das respostas das consultas.
+Hipótese Alternativa (H1): Existem diferenças significativas entre GraphQL e REST em relação ao tempo de resposta e/ou ao tamanho das respostas das consultas.
+B. Variáveis Dependentes
+Tempo de resposta (em milissegundos): tempo decorrido entre o envio da requisição e o recebimento da resposta.
+Tamanho da resposta (em bytes): quantidade de dados transferidos na resposta da API.
+C. Variáveis Independentes
+Tipo de API: REST ou GraphQL.
+Tipo de consulta: consulta simples (poucos campos) ou consulta complexa (muitos campos/relacionamentos).
+D. Tratamentos
+Tratamento 1: Realizar consultas utilizando a API REST.
+Tratamento 2: Realizar consultas equivalentes utilizando a API GraphQL.
+E. Objetos Experimentais
+APIs Web implementadas em ambos os padrões (REST e GraphQL), acessando o mesmo banco de dados e expondo recursos equivalentes (ex: usuários, posts, comentários).
+Scripts de teste automatizados para envio das requisições e coleta dos dados.
+F. Tipo de Projeto Experimental
+Experimento controlado com delineamento cruzado: cada consulta será realizada tanto via REST quanto via GraphQL, sob as mesmas condições de ambiente.
+G. Quantidade de Medições
+Cada consulta será repetida 30 vezes em cada abordagem (REST e GraphQL), para garantir robustez estatística e minimizar efeitos de variabilidade momentânea da rede ou do servidor.
+H. Ameaças à Validade
+Validade interna: diferenças de implementação entre as APIs, caching, ou otimizações específicas podem enviesar os resultados.
+Validade externa: resultados podem não se generalizar para outros domínios, bancos de dados ou volumes de dados.
+Validade de construção: consultas REST e GraphQL devem ser equivalentes em termos de dados retornados.
+Validade estatística: tamanho da amostra pode não ser suficiente para detectar pequenas diferenças.
+
+2. Preparação do Experimento
+2.1. Desenvolvimento das APIs
+Implementar duas APIs acessando o mesmo banco de dados:
+API REST: endpoints tradicionais (ex: /users, /posts).
+API GraphQL: um endpoint único (/graphql) com schema equivalente.
+2.2. Definição das Consultas
+Consulta simples: buscar um usuário pelo ID, retornando nome e email.
+Consulta complexa: buscar um usuário pelo ID, retornando nome, email, posts e comentários de cada post.
+2.3. Ferramentas e Scripts
+Utilizar Python com as bibliotecas requests para envio das requisições e time para medir o tempo de resposta.
+Scripts devem registrar o tempo de resposta e o tamanho da resposta para cada requisição.
+Armazenar os resultados em arquivos .csv para posterior análise.
+2.4. Ambiente Experimental
+Executar os testes em um ambiente controlado (mesma máquina, sem outras aplicações pesadas rodando).
+Garantir que o banco de dados esteja populado com dados equivalentes para ambos os testes.
+2.5. Planejamento dos Testes
+Para cada tipo de consulta (simples e complexa), executar 30 requisições via REST e 30 via GraphQL.
+Registrar todos os dados relevantes (tempo, tamanho, tipo de consulta, tipo de API).
