@@ -1,0 +1,15 @@
+Etapa,Descrição
+Hipótese Nula (H0),Não há diferença significativa entre GraphQL e REST em relação ao tempo de resposta e ao tamanho das respostas das consultas.
+Hipótese Alternativa (H1),Existem diferenças significativas entre GraphQL e REST em relação ao tempo de resposta e/ou ao tamanho das respostas das consultas.
+Variáveis Dependentes,Tempo de resposta (ms); Tamanho da resposta (bytes)
+Variáveis Independentes,Tipo de API (REST ou GraphQL); Tipo de consulta (simples ou complexa)
+Tratamentos,Tratamento 1: Consultas via REST; Tratamento 2: Consultas equivalentes via GraphQL
+Objetos Experimentais,APIs Web REST e GraphQL acessando o mesmo banco de dados; Scripts de teste automatizados
+Tipo de Projeto Experimental,Experimento controlado com delineamento cruzado
+Quantidade de Medições,30 repetições para cada consulta em cada abordagem (REST e GraphQL)
+Ameaças à Validade,"Interna: diferenças de implementação, caching, otimizações; Externa: generalização para outros domínios; Construção: equivalência das consultas; Estatística: tamanho da amostra"
+Desenvolvimento das APIs,Implementar APIs REST e GraphQL acessando o mesmo banco de dados
+Definição das Consultas,"Simples: buscar usuário por ID (nome, email); Complexa: buscar usuário por ID (nome, email, posts, comentários)"
+Ferramentas e Scripts,"Python (requests, time); scripts para medir tempo e tamanho da resposta; salvar resultados em CSV"
+Ambiente Experimental,"Mesma máquina, ambiente controlado, banco de dados populado de forma equivalente"
+Planejamento dos Testes,"Para cada consulta (simples e complexa), executar 30 requisições via REST e 30 via GraphQL; registrar tempo, tamanho, tipo de consulta e API"
